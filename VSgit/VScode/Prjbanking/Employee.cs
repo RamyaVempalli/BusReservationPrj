@@ -12,8 +12,8 @@ namespace Prjbanking
         public string name { get; set; }
         public void GetEmployee()
         {
-           Console.WriteLine(Enter id);
-            id=covertToint32(Console.ReadLine());
+           Console.WriteLine("Enter id");
+            id=Convert.ToInt32(Console.ReadLine());
         }
         public void DisplayEmployee()
         {
