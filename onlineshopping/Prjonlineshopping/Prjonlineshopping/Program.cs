@@ -8,7 +8,7 @@ namespace Prjonlineshopping
         public string pname { get; set; }
         void getdata()
         {
-
+          Console.Writeline(Enter the id);
         }
         static void Main(string[] args)
         {
