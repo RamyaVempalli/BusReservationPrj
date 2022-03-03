@@ -1,19 +1,13 @@
 ﻿using System;
 
-namespace Prjonlineshopping
+namespace PrjLoan
 {
     class Program
     {
-        public int pid { get; set; }
-        public string pname { get; set; }
-        void getdata()
-        {
-
-        }
-
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            Console.WriteLine("Loan Amount");
         }
     }
 }
