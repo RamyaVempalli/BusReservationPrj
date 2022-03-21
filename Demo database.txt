@@ -1,0 +1,102 @@
+//User
+Table User {
+  user_id int[pk]
+  first_name varchar
+  last_name varchar
+  email_id varchar
+  password varchar
+  contact_no varchar
+  
+}
+
+//bus_details
+Table bus {
+  bus_id int [pk]
+  bus_no varchar
+  bus_type varchar
+  capacity int
+ user_id int[fk]
+ }
+ 
+ //driver_details
+ Table driver {
+  driver_id int[pk]
+  driver_name varchar
+  driver_contact_no varchar
+  user_id int[fk]
+}
+
+//schedule
+Table schedule {
+  schedule_id int[pk]
+  bus_id int
+  driver_id int
+  starting_point varchar
+  destination varchar
+  schedule_date datetime
+  departure_time time
+  estimated_arrival_time time
+  fare_amount float
+  remarks varchar
+  user_id int[fk]
+  
+}
+
+//Payment
+Table payment {
+  payment_id int [pk]
+  booking_id int 
+  amount_paid float
+  payment_datetime datetime
+  user_id int[fk]
+}
+
+//Customer_Profile
+Table customer_profile {
+customer_id int[pk]
+  name varchar
+  dob varchar
+  gender varchar
+  mobile varchar
+  email_id varchar
+  address varchar
+  user_id int[fk]
+  
+}
+
+//booking_id
+Table booking {
+booking_id int[pk]
+fare_amount float
+total_amount float
+number_of_seats int
+date_of_booking date
+booking_status varchar
+user_id int[fk]
+}
+
+Ref: "driver"."user_id" < "schedule"."user_id"
+
+Ref: "customer_profile"."user_id" < "User"."user_id"
+
+Ref: "payment"."user_id" < "User"."user_id"
+
+Ref: "driver"."user_id" < "User"."user_id"
+
+Ref: "booking"."user_id" < "schedule"."user_id"
+
+Ref: "payment"."user_id" < "booking"."user_id"
+
+Ref: "booking"."booking_id" < "payment"."booking_id"
+
+
+
+Ref: "bus"."user_id" < "User"."user_id"
+
+Ref: "bus"."bus_id" < "schedule"."bus_id"
+
+Ref: "driver"."driver_id" < "schedule"."driver_id"
+
+Ref: "User"."email_id" < "customer_profile"."email_id"
+
+Ref: "booking"."fare_amount" < "schedule"."fare_amount"

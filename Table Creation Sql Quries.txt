@@ -1,0 +1,58 @@
+create database BusReservation
+/*create table returntbl(return_id int primary key,return_date date, return_from nvarchar,return_to nvarchar,no_of_passengers int,return_ticket_price float,return_time time)
+ 
+ select *from returntbl
+ Drop table returntbl
+ alter table Ticket_Booking rename to TicketBooking
+RENAME TABLE Ticket_Booking TO TicketBooking;
+sp_rename 'Ticket_Booking','TicketBooking'
+RENAME Ticket_Booking TO TicketBooking
+  EXEC sp_rename 'Ticket_Booking','TicketBooking'
+ Drop table Ticket_Booking
+ select * from TicketBooking
+ */
+ select * from Bus
+ sp_helper Bus
+ sp_help Bus
+ /*Return*/
+ create table ReturnJourney(Return_Id int primary key,Return_Date date, Return_From nvarchar,Return_To nvarchar,No_of_Passengers int,Return_Ticket_Price float,Return_Time time)
+
+ /*User Profile*/
+ create table UserProfile(User_id int primary key,First_Name varchar(20),Last_Name varchar(20),Contact_No varchar(20),Gender varchar(20),
+ Email_Id varchar(20),DOB date ,Password varchar(20),Address varchar(20))
+
+ /* Ticket Booking*/
+ create table TicketBooking(Booking_Id int primary key,User_id int foreign key references UserProfile(User_id),No_of_Tickets int,No_of_Seats int,
+ Date_of_Booking date,Ticket_Price float,Booking_Status varchar(20),Fare_Amount float)
+
+ /*Passenger*/
+ create table Passenger(Passenger_Id int primary key,Passenger_Name varchar(20),Age int,Gender varchar(20),Passenger_Contact varchar,
+ Email_Id varchar(20),No_of_Passengers int,Booking_Id int foreign key references TicketBooking(Booking_Id))
+
+ /*Payment*/
+ create table Payment(Payment_Id int primary key,Booking_Id int foreign key references TicketBooking(Booking_Id),
+ Payment_Type varchar(20),Payment_Date date,Amount_Paid float)
+
+ /*Driver*/
+ create table Driver(Driver_Id int primary key,Driver_Name varchar(20),Driver_Contact varchar(20),User_id int foreign key references UserProfile(User_id))
+
+ /*Bus*/
+ create table Bus(Bus_Id int primary key,Bus_No varchar(20),Bus_Type varchar(20),Bus_Name varchar(20),Departure varchar(20),Destination varchar(20),
+ No_of_Seats_Available int,Capacity int,Start_Date date,End_Date date,Return_Id int foreign key references ReturnJourney(Return_Id),
+ Ticket_Price float,Schedule_Id int ,User_id int foreign key references UserProfile(User_id))
+
+ 
+ /*alter table Bus add foreign key(Schedule_Id) references Schedule(Schedule_Id)*/
+
+
+ /*Schedule*/
+ create table Schedule(Schedule_Id int primary key,User_id int foreign key references UserProfile(User_id),Bus_Id int foreign key references Bus(Bus_Id),
+ Driver_Id int foreign key references Driver(Driver_Id),Departure varchar(20),Destination varchar(20),Schedule_Date date,
+ Departure_Time time,Estimated_Arrival_Time time,Fare_Amount float,Remark varchar(20))
+
+ /*Role*/
+ create table Role(Role_Id int primary key,Role_Title varchar(20),Role_Description varchar(20),User_id int foreign key references UserProfile(User_id))
+
+ /*Ticket Cancellation*/
+ create table TicketCancellation(Cancellation_Id int primary key,Booking_Id int foreign key references TicketBooking(Booking_Id),
+ Is_Cancel varchar(20),Is_Refund float,Is_Reschedule date,Return_Id int foreign key references ReturnJourney(Return_Id))

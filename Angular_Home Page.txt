@@ -1,0 +1,84 @@
+Home Page HTML
+-----------------
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">About</a></li>
+        <li class="active"><a href="#">Terms of Use</a></li>
+        <li class="active"><a href="#">Contact Us</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li class="active"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        
+      </ul>
+    </div>
+  </nav>
+ 
+  &nbsp; &nbsp;
+
+  
+    <form class="form-inline" action="/action_page.php">
+        <h2>Online Tickets Booking</h2>
+        <div class="form-group">
+            <h4>To 
+                <br>From <br><br>
+                <textarea cols="30"></textarea>
+            </h4>
+         </div>
+         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+         <div class="form-group">
+            <h4>From
+             <br>To <br><br>
+             <textarea cols="30"></textarea>
+         </h4>
+        </div>
+        <br>
+       <div class="form-group">
+        <h4>Date Of Journey</h4>
+        <textarea cols="30"></textarea>
+       </div>
+       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <div class="form-group">
+            <h4>Date Of Return(Optional)</h4>
+        <textarea cols="30"></textarea>
+        </div>
+        <br><br>
+  <p>
+    <button type="button" class="btn btn-info">Search Bus</button>
+  </p>
+    
+  
+    </form>
+
+
+Home page.css
+-----------------
+
+form{
+    text-align:justify;
+    padding-left:30px;
+    
+    
+    margin: 100px;
+    margin-left:10cm;
+    
+    border-style: double;
+  
+    
+}
+h4{
+    text-align: justify;
+}
+   
+    h2{
+        padding-left: 50px;
+    }
+    p{
+        text-align: justify;
+        padding-left: 250px;
+    }

@@ -1,0 +1,38 @@
+grplink:https://meet.google.com/dwr-zgwg-pfd
+
+
+Database Design: https://dbdiagram.io/home
+                 https://app.dbdesigner.net/   
+
+webbsite: https://www.inettutor.com/mysql/bus-booking-system-database-design/
+
+
+
+Angulr Seat reservation:
+
+https://github.com/mistryakshar54/angular-seat-charts
+
+https://github.com/abhinavjuneja/seats-layout
+
+
+Table
+---------
+userprofile:
+----------------
+create table userprofile
+(user_id int primary key,
+first_name nvarchar, 
+last_name nvarchar,
+Gender varchar,
+email_id nvarchar foreign key references userprofile(passenger),
+password nvarchar,
+contact_no nvarchar,
+dob date,
+address nvarchar)					
+
+
+create database BusReservation
+create table returntbl(return_id int primary key,return_date date, return_from nvarchar,return_to nvarchar,no_of_passengers int,return_ticket_price float,return_time time)
+ 
+ select *from returntbl
+ 
